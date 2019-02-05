@@ -12,8 +12,7 @@ import javax.ws.rs.Path;
  * Resource with a Response at Method Level
  */
 public class ImplementationResponseResource {
-    @GET
-    @Path("/implementationresponse")
+    @GetMapping(path="/implementationresponse")
     @Operation(
             summary = "Simple get operation",
             description = "Defines a simple get operation with no inputs and a complex output object",

@@ -38,8 +38,7 @@ public class RepeatableCallbackResource {
                             responseCode = "200",
                             description = "voila!")
             })
-    @GET
-    @Path("/repeatablecallback")
+    @GetMapping(path="/repeatablecallback")
     public String simpleGet() {
         return null;
     }

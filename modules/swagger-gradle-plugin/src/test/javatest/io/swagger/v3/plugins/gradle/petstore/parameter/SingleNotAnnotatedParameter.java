@@ -10,8 +10,7 @@ import javax.ws.rs.Path;
  * Class with a single not annotated parameter.
  */
 public class SingleNotAnnotatedParameter {
-    @GET
-    @Path("/singlenoannotatedparameter")
+    @GetMapping(path="/singlenoannotatedparameter")
     @Operation(operationId = "create User")
     public User findUser(final String id) {
         return new User();

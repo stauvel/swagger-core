@@ -13,8 +13,7 @@ import javax.ws.rs.core.Response;
  * Resource with a Response at Method Level and Operation Level.
  */
 public class PriorityResponseResource {
-    @GET
-    @Path("/priorityresponses")
+    @GetMapping(path="/priorityresponses")
     @Operation(summary = "Find pets",
             description = "Returns the Pets",
             responses = {@ApiResponse(responseCode = "200", description = "Inside Operation Response")})

@@ -11,8 +11,7 @@ import javax.ws.rs.QueryParam;
  * Class with a single parameter annotated with jaxrs.
  */
 public class SingleJaxRSAnnotatedParameter {
-    @GET
-    @Path("/singlejaxrsannotatedparameter")
+    @GetMapping(path="/singlejaxrsannotatedparameter")
     @Operation(operationId = "create User")
     public User findUser(@QueryParam("id") final String id) {
         return new User();

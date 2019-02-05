@@ -14,8 +14,7 @@ import javax.ws.rs.Path;
  * Resource with some responses
  */
 public class ComplexResponseResource {
-    @GET
-    @Path("/complexresponse")
+    @GetMapping(path="/complexresponse")
     @Operation(summary = "Find pets",
             description = "Returns the Pets",
             responses = {

@@ -11,8 +11,7 @@ import javax.ws.rs.Path;
  * Resource with a Response at Method Level
  */
 public class NoResponseResource {
-    @GET
-    @Path("/noresponse")
+    @GetMapping(path="/noresponse")
     @Operation(summary = "Find pets",
             description = "Returns the Pets")
     public User getPets() throws NotFoundException {

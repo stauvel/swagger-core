@@ -43,8 +43,7 @@ import javax.ws.rs.core.Response;
 public class PetResource {
     static PetData petData = new PetData();
 
-    @GET
-    @Path("/{petId}")
+    @GetMapping(path="/{petId}")
     @Operation(summary = "Find pet by ID",
             description = "Returns a pet when 0 < ID <= 10.  ID > 10 or nonintegers will simulate API error conditions",
             responses = {
@@ -126,8 +125,7 @@ public class PetResource {
         return Response.ok().entity("SUCCESS").build();
     }
 
-    @GET
-    @Path("/findByStatus")
+    @GetMapping(path="/findByStatus")
     @Produces("application/xml")
     @Operation(summary = "Finds Pets by status",
             description = "Multiple status values can be provided with comma seperated strings",
@@ -146,8 +144,7 @@ public class PetResource {
         return Response.ok(petData.findPetByStatus(status)).build();
     }
 
-    @GET
-    @Path("/findByTags")
+    @GetMapping(path="/findByTags")
     @Produces("application/json")
     @Operation(summary = "Finds Pets by tags",
             description = "Muliple tags can be provided with comma seperated strings. Use tag1, tag2, tag3 for testing.",

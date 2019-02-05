@@ -11,8 +11,7 @@ import javax.ws.rs.core.Response;
  */
 public class TagOperationResource {
 
-    @GET
-    @Path("/tagoperation")
+    @GetMapping(path="/tagoperation")
     @Operation(tags = {"Example Tag", "Second Tag"})
     public Response getTags() {
         return Response.ok().entity("ok").build();

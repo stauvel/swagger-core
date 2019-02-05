@@ -37,8 +37,7 @@ public class MultipleCallbacksTestWithOperationResource {
                             responseCode = "200",
                             description = "voila!")
             })
-    @GET
-    @Path("/multiplecallback")
+    @GetMapping(path="/multiplecallback")
     public String simpleGet() {
         return null;
     }

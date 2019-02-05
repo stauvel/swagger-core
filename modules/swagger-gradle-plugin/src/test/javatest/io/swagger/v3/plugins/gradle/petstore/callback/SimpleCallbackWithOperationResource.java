@@ -36,8 +36,7 @@ public class SimpleCallbackWithOperationResource {
                             responseCode = "200",
                             description = "voila!")
             })
-    @GET
-    @Path("/simplecallback")
+    @GetMapping(path="/simplecallback")
     public String simpleGet() {
         return null;
     }

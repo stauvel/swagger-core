@@ -13,8 +13,7 @@ import javax.ws.rs.core.Response;
  * Resource with the response in the Operation Annotation
  */
 public class OperationResponseResource {
-    @GET
-    @Path("/responseinoperation")
+    @GetMapping(path="/responseinoperation")
     @Operation(summary = "Find Users",
             description = "Returns the Users",
             responses = {@ApiResponse(responseCode = "200", description = "Status OK")})

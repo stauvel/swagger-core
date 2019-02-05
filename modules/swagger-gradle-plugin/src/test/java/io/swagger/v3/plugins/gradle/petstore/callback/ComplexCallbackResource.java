@@ -53,8 +53,7 @@ public class ComplexCallbackResource {
                             responseCode = "200",
                             description = "voila!")
             })
-    @GET
-    @Path("/complexcallback")
+    @GetMapping(path="/complexcallback")
     public String simpleGet(@Parameter(description = "idParam", schema = @Schema(implementation = User.class))
                             @QueryParam("id") final String id) {
         return null;

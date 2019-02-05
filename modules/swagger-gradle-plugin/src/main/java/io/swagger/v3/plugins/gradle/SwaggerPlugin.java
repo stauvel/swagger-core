@@ -16,9 +16,13 @@ public class SwaggerPlugin implements Plugin<Project> {
         config.defaultDependencies(new Action<DependencySet>() {
             public void execute(DependencySet dependencies) {
                 dependencies.add(project.getDependencies().create("org.apache.commons:commons-lang3:3.7"));
-                dependencies.add(project.getDependencies().create("io.swagger.core.v3:swagger-jaxrs2:2.0.7-SNAPSHOT"));
-                dependencies.add(project.getDependencies().create("javax.ws.rs:javax.ws.rs-api:2.1"));
                 dependencies.add(project.getDependencies().create("javax.servlet:javax.servlet-api:3.1.0"));
+                //TODO if(configuration.resolve.annotationFormat = "jersey")
+//                dependencies.add(project.getDependencies().create("io.swagger.core.v3:swagger-jaxrs2:2.0.7-SNAPSHOT"));
+//                dependencies.add(project.getDependencies().create("javax.ws.rs:javax.ws.rs-api:2.1"));
+                //TODO if(configuration.resolve.annotationFormat = "spring")
+                dependencies.add(project.getDependencies().create("io.swagger.core.v3:swagger-spring:2.0.7-SNAPSHOT"));
+                dependencies.add(project.getDependencies().create("org.springframework.boot:spring-boot-starter-web:2.1.1.RELEASE"));
             }
         });
         Task task = project.getTasks().create("resolve", ResolveTask.class);

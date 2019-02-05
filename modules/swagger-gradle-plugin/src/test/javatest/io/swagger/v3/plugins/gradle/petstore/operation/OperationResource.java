@@ -28,8 +28,7 @@ public class OperationResource implements InterfaceResource {
         return Response.ok().entity(new Pet()).build();
     }
 
-    @GET
-    @Path("/operationsresource")
+    @GetMapping(path="/operationsresource")
     @Operation(summary = "Find pet by ID",
             description = "combinatedfullyannotatedoperation/{petId}",
             operationId = "petId",

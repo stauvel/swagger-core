@@ -13,8 +13,7 @@ import javax.ws.rs.QueryParam;
  * Class with a single parameter annotated with jaxrs and open api annotation.
  */
 public class OpenAPIWithImplementationJaxRSAnnotatedParameter {
-    @GET
-    @Path("/openapiwithimplementationjaxrsannotatedparameter")
+    @GetMapping(path="/openapiwithimplementationjaxrsannotatedparameter")
     @Operation(operationId = "create User")
     public User findUser(@Parameter(description = "idParam", schema = @Schema(implementation = User.class))
                          @QueryParam("id") final String id) {

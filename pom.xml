@@ -313,6 +313,7 @@
         <module>modules/swagger-integration</module>
         <module>modules/swagger-jaxrs2</module>
         <module>modules/swagger-jaxrs2-servlet-initializer</module>
+        <module>modules/swagger-spring</module>
         <module>modules/swagger-maven-plugin</module>
 
     </modules>

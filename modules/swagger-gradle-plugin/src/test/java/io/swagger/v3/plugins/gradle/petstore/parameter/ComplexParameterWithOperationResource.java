@@ -22,8 +22,7 @@ public class ComplexParameterWithOperationResource {
         this.phone = phone;
     }
 
-    @GET
-    @Path("/complexparameter")
+    @GetMapping(path="/complexparameter")
     @Operation(operationId = "create User",
             parameters = {
                     @Parameter(description = "Phone", name = "phone", in = ParameterIn.PATH)

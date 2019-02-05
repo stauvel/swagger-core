@@ -12,8 +12,7 @@ import javax.ws.rs.core.Response;
  * Interface resource
  */
 public interface InterfaceResource {
-    @GET
-    @Path("/interfaceoperation/{petId}")
+    @GetMapping(path="/interfaceoperation/{petId}")
     @Operation(summary = "Find pet by ID Operation in Parent",
             description = "Returns a pet in Parent"
     )

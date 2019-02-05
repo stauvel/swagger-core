@@ -15,8 +15,7 @@ import javax.ws.rs.core.Response;
  * Resource with Operations Examples
  */
 public class ExternalDocumentationResource {
-    @GET
-    @Path("/{petId}")
+    @GetMapping(path="/{petId}")
     @Operation(summary = "Find pet by ID",
             description = "Returns a pet when 0 < ID <= 10.  ID > 10 or non integers will simulate API error conditions",
             operationId = "petId",

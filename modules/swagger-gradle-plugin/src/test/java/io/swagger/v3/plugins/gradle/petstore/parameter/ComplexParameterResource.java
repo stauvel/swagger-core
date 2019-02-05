@@ -21,8 +21,7 @@ public class ComplexParameterResource {
         this.phone = phone;
     }
 
-    @GET
-    @Path("/complexparameter")
+    @GetMapping(path="/complexparameter")
     @Operation(operationId = "create User")
     public User findUser(@Parameter(description = "idParam") @QueryParam("id") final String id,
                          final String name, @QueryParam("lastName") final String lastName,

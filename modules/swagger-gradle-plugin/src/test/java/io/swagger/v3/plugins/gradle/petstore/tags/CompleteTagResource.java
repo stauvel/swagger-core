@@ -19,8 +19,7 @@ import javax.ws.rs.core.Response;
 @Tag(name = "Sixth Tag")
 public class CompleteTagResource {
 
-    @GET
-    @Path("/completetags")
+    @GetMapping(path="/completetags")
     @Operation(tags = {"Example Tag", "Second Tag"})
     @Tag(name = "Third Tag")
     @Tag(name = "Second Tag")

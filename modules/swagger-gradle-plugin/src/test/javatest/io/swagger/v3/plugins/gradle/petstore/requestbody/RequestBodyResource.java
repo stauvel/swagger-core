@@ -20,8 +20,7 @@ import javax.ws.rs.core.Response;
  * Resource with RequestBody examples
  */
 public class RequestBodyResource {
-    @GET
-    @Path("/methodWithRequestBodyWithoutContent")
+    @GetMapping(path="/methodWithRequestBodyWithoutContent")
     @Operation(summary = "Create user",
             description = "This can only be done by the logged in user.")
     public Response methodWithRequestBodyWithoutContent(
@@ -29,8 +28,7 @@ public class RequestBodyResource {
         return Response.ok().entity("").build();
     }
 
-    @GET
-    @Path("/methodWithRequestBodyWithoutContentWithoutImplementation")
+    @GetMapping(path="/methodWithRequestBodyWithoutContentWithoutImplementation")
     @Operation(summary = "Create user",
             description = "This can only be done by the logged in user.")
     public Response methodWithRequestBodyWithoutContentWithoutImplementation(
