@@ -5,13 +5,14 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 public class ResponsesResource {
 
-    @GetMapping(path="/")
+    @RequestMapping(method = RequestMethod.GET, path="/")
     @Operation(
             summary = "Simple get operation",
             description = "Defines a simple get operation with no inputs and a complex output object",
@@ -39,7 +40,7 @@ public class ResponsesResource {
     public void getResponses() {
     }
 
-    @GetMapping(path="/oneOf", produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, path="/oneOf", produces = "application/json")
     @Operation(summary = "Test inheritance / polymorphism",
             responses = {
                     @ApiResponse(description = "bean answer",
@@ -62,7 +63,7 @@ public class ResponsesResource {
         return null;
     }
 
-    @GetMapping(path="/anyOf", produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, path="/anyOf", produces = "application/json")
     @Operation(summary = "Test inheritance / polymorphism",
             responses = {
                     @ApiResponse(description = "bean answer",
@@ -85,7 +86,7 @@ public class ResponsesResource {
         return null;
     }
 
-    @GetMapping(path="/allOf", produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, path="/allOf", produces = "application/json")
     @Operation(summary = "Test inheritance / polymorphism",
             responses = {
                     @ApiResponse(description = "bean answer",

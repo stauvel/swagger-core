@@ -20,8 +20,8 @@ import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
@@ -435,7 +435,7 @@ public class ReaderTest {
     }
 
     static class ClassWithGenericType {
-        @GetMapping(path = "/test", produces = "application/json", consumes = "application/json")
+        @RequestMapping(method = RequestMethod.GET, path = "/test", produces = "application/json", consumes = "application/json")
         //public void test1(@RequestParam("aa") String a) {
         public void test1(A a) {
         }

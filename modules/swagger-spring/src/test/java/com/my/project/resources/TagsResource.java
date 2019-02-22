@@ -5,7 +5,8 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @OpenAPIDefinition(tags = {
         @Tag(name = "Definition First Tag"),
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Tag(name = "Sixth Tag")
 public class TagsResource {
 
-    @GetMapping(path="/")
+    @RequestMapping(method = RequestMethod.GET, path="/")
     @Operation(tags = {"Example Tag", "Second Tag"})
     @Tag(name = "Third Tag")
     @Tag(name = "Second Tag")

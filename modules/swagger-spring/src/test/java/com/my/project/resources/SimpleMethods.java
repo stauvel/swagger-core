@@ -1,31 +1,32 @@
 package com.my.project.resources;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public class SimpleMethods {
 
-    @GetMapping(path="/object")
+    @RequestMapping(method = RequestMethod.GET, path="/object")
     public TestBean getTestBean() {
         return new TestBean();
     }
 
-    @GetMapping(path="/int")
+    @RequestMapping(method = RequestMethod.GET, path="/int")
     public int getInt() {
         return 0;
     }
 
-    @GetMapping(path="/intArray")
+    @RequestMapping(method = RequestMethod.GET, path="/intArray")
     public int[] getIntArray() {
         return new int[]{0};
     }
 
-    @GetMapping(path="/string")
+    @RequestMapping(method = RequestMethod.GET, path="/string")
     public String[] getStringArray() {
         return new String[]{};
     }
 
-    @GetMapping(path="/stringArray")
+    @RequestMapping(method = RequestMethod.GET, path="/stringArray")
     public void getWithIntArrayInput(@RequestParam("ids") int[] inputs) {
     }
 

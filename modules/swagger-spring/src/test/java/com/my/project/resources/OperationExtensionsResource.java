@@ -4,11 +4,12 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.extensions.Extension;
 import io.swagger.v3.oas.annotations.extensions.ExtensionProperty;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 public class OperationExtensionsResource {
 
-    @GetMapping(path="/")
+    @RequestMapping(method = RequestMethod.GET, path="/")
     @Operation(operationId = "operationId",
             summary = "Operation Summary",
             description = "Operation Description",

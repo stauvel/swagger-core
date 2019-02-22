@@ -189,7 +189,7 @@ public class ReaderUtils {
     }
 
     public static String extractOperationMethod(Method method, Iterator<OpenAPIExtension> chain) {
-        RequestMapping methodAnnotation = method.getAnnotation(RequestMapping.class);
+        RequestMapping methodAnnotation = ReflectionUtils.getAnnotation(method, RequestMapping.class);
         if(methodAnnotation != null && methodAnnotation.method() != null &&  methodAnnotation.method().length > 0) {
             //TODO multi Http Methods cases
             return methodAnnotation.method()[0].name().toLowerCase();

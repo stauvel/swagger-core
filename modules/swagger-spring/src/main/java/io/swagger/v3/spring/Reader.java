@@ -45,6 +45,8 @@ import io.swagger.v3.spring.util.ReaderUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.lang.annotation.Annotation;
@@ -206,7 +208,7 @@ public class Reader implements OpenApiReader {
         // class path
         final RequestMapping classAnnotation = ReflectionUtils.getAnnotation(cls, RequestMapping.class);
 
-        if (hidden != null) { //  || (classAnnotation == null && !isSubresource)) {
+        if (hidden != null) {
             return openAPI;
         }
 
@@ -361,6 +363,8 @@ public class Reader implements OpenApiReader {
                     Type returnType = method.getGenericReturnType();
                     if (annotatedMethod != null && annotatedMethod.getType() != null) {
                         returnType = annotatedMethod.getType();
+                    } else if (ResponseEntity.class.equals(returnType)) {
+                        returnType = getClassArgument(returnType);
                     }
 
                     if (shouldIgnoreClass(returnType.getTypeName()) && !returnType.equals(subResource)) {
@@ -998,7 +1002,7 @@ public class Reader implements OpenApiReader {
             return true;
         }
         boolean ignore = false;
-        ignore = ignore || className.replace("[simple type, class ", "").startsWith("javax.ws.rs.");
+        ignore = ignore || className.replace("[simple type, class ", "").startsWith("org.springframework");
         ignore = ignore || className.equalsIgnoreCase("void");
         ignore = ignore || className.equalsIgnoreCase("[simple type, class void]");
         return ignore;
@@ -1314,7 +1318,7 @@ public class Reader implements OpenApiReader {
     protected Class<?> getSubResourceWithSpringSubresourceLocatorSpecs(Method method) {
         final Class<?> rawType = method.getReturnType();
         final Class<?> type;
-        if (Class.class.equals(rawType)) {
+        if (Class.class.equals(rawType) || ResponseEntity.class.equals(rawType)) {
             type = getClassArgument(method.getGenericReturnType());
             if (type == null) {
                 return null;

@@ -5,7 +5,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.servers.ServerVariable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @OpenAPIDefinition(
     servers = {
@@ -33,7 +34,7 @@ import org.springframework.web.bind.annotation.GetMapping;
         })
 public class ServersResource {
 
-    @GetMapping(path = "/")
+    @RequestMapping(method = RequestMethod.GET, path = "/")
     @Operation(servers = {
             @Server(
                     description = "operation server 1",

@@ -519,4 +519,11 @@
         <coverage.missed.classes>0</coverage.missed.classes>
 
     </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>https://nexus.intra.monext.fr:10130/nexus/content/repositories/jindus-repo-pay-pay-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

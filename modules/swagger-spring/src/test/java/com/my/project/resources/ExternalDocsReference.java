@@ -4,13 +4,14 @@ import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 @ExternalDocumentation(
         description = "External documentation description in class",
         url = "http://url.com"
 )
 public class ExternalDocsReference {
-    @GetMapping(path="/")
+    @RequestMapping(method = RequestMethod.GET, path="/")
     @Operation(externalDocs =
     @ExternalDocumentation(
             description = "External documentation description in @Operation",

@@ -24,7 +24,7 @@ repositories {
 dependencies {
     compile     gradleApi()
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.7'
-    compile group: 'io.swagger.core.v3', name: 'swagger-jaxrs2', version:'2.0.7-SNAPSHOT'
+    compile group: 'io.swagger.core.v3', name: 'swagger-spring', version:'2.0.7-SNAPSHOT'
     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version:'2.1'
     compile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
     testCompile group: 'com.github.tomakehurst', name: 'wiremock', version:'2.14.0'
@@ -82,7 +82,15 @@ pluginBundle {
 publishing {
     repositories {
         maven {
-            url mavenLocal().url
+            if (project.version.endsWith('-SNAPSHOT')) {
+                url "https://nexus.intra.monext.fr:10130/nexus/content/repositories/jindus-repo-pay-pay-snapshot/"
+            } else {
+                url "https://nexus.intra.monext.fr:10130/nexus/content/repositories/jindus-repo-pay-pay-public/"
+            }
+            credentials {
+                username mavenUser
+                password mavenPassword
+            }
         }
     }
 }

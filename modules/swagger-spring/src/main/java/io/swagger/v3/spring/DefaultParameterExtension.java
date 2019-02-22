@@ -113,7 +113,7 @@ public class DefaultParameterExtension extends AbstractOpenAPIExtension {
 
     @Override
     protected boolean shouldIgnoreClass(Class<?> cls) {
-        return cls.getName().startsWith("javax.ws.rs.");
+        return cls.getName().startsWith("org.springframework");
     }
 
 }

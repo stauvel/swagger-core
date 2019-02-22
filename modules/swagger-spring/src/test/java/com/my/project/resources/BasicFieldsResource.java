@@ -6,13 +6,18 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+@Tag(name = "basic")
+@RestController
 public class BasicFieldsResource {
 
-    @GetMapping(path="/1")
+    @RequestMapping(path="/1", method = RequestMethod.GET)
     @Operation(operationId = "operationId",
             summary = "Operation Summary",
             description = "Operation Description")
@@ -28,7 +33,7 @@ public class BasicFieldsResource {
         return ResponseEntity.ok("ok");
     }
 
-    @GetMapping(path="/2")
+    @RequestMapping(method = RequestMethod.GET, path="/2")
     @Operation(operationId = "operationId",
             summary = "Operation Summary",
             description = "Operation Description")
@@ -43,7 +48,7 @@ public class BasicFieldsResource {
         return ResponseEntity.ok("ok");
     }
 
-    @GetMapping(path="/3")
+    @RequestMapping(method = RequestMethod.GET, path="/3")
     @Operation(operationId = "operationId",
             summary = "Operation Summary",
             description = "Operation Description")
@@ -58,7 +63,7 @@ public class BasicFieldsResource {
         return ResponseEntity.ok("ok");
     }
 
-    @GetMapping(path="/4")
+    @RequestMapping(method = RequestMethod.GET, path="/4")
     @Operation(operationId = "operationId",
             summary = "Operation Summary",
             description = "Operation Description")
@@ -72,7 +77,7 @@ public class BasicFieldsResource {
         return ResponseEntity.ok("ok");
     }
 
-    @GetMapping(path="/5")
+    @RequestMapping(method = RequestMethod.GET, path="/5")
     @Operation(operationId = "operationId",
             summary = "Operation Summary",
             description = "Operation Description")
@@ -83,7 +88,7 @@ public class BasicFieldsResource {
         return ResponseEntity.ok("ok");
     }
 
-    @GetMapping(path="/6")
+    @RequestMapping(method = RequestMethod.GET, path="/6")
     @Operation(operationId = "operationId",
             summary = "Operation Summary",
             description = "Operation Description")
